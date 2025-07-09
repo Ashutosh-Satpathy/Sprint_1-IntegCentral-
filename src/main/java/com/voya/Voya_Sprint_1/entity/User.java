@@ -5,37 +5,61 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "users")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer userId;
 
-    @NotNull(message = "First name is required")
+    @NotNull
     private String firstName;
 
-    @NotNull(message = "Last name is required")
+    @NotNull
     private String lastName;
 
-    @NotNull(message = "Network ID is required")
-    @Column(unique = true)
-    private String lanId;
-
     @Email
-    @NotNull(message = "Email is required")
-    @Column(unique = true)
+    @NotNull
     private String email;
 
     @NotNull
-    private Boolean isActive;
+    private String networkId;
 
-    // Relationship mapping to roles/permissions will be added in next entities
+    @NotNull
+    private String userType;
+
+    private String status;
+
+    private LocalDateTime createdAt;
+
+    private String clientLegalName;
+
+    private String planId;
+
+    private String situsState;
+
+    private LocalDateTime effectiveDate;
+
+    private String sicCode;
+
+    private String ein;
+
+    private String legalEntityType;
+
+    private String address;
+
+    private LocalDateTime nextRenewalDate;
+
+    private String maxPrimaryContact;
+
+    private String workPhoneNumber;
+
+    private String workEmailAddress;
 }
-
